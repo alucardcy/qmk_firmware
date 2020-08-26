@@ -53,7 +53,7 @@ fi
 dir=$(pwd -W 2>/dev/null) || dir=$PWD  # Use Windows path if on Windows
 
 # Run container and build firmware
-docker run --rm -it $usb_args \
+docker run --rm -i $usb_args \
 	--user $(id -u):$(id -g) \
 	-w /qmk_firmware \
 	-v "$dir":/qmk_firmware \
