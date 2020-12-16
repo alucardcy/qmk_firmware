@@ -10,13 +10,6 @@ uint16_t alt_tab_timer = 0;        //# we will be using them soon.
 #define _NAV 4
 #define _ADJUST 5
 
-// enum{
-//   _QWERTYGMNG,
-//   _QWERTY,
-//   _SYMB,
-//   _NAV,
-//   _ADJUST
-// };
 
 enum custom_keycodes {
   C_COPY = SAFE_RANGE,
@@ -135,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼───────┐                 ┌─────┼────────┼────────┼────────┼────────┼────────┼────────┼─────────────┤
        KC_LSFT ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B ,KC_BSPC,KC_DEL ,                  KC_HOME ,LT(_SYMB,KC_END),KC_N  ,KC_M   ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_RSFT ,
     //├────────┼────────┼────────┼─────────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼─────────────┤
-      KC_LCTRL ,TT(_ADJUST)  ,KC_CAPS  ,LALT_T(KC_PAST)   ,KC_LALT     ,KC_SPC  ,KC_ENT,         KC_ENT ,KC_SPC ,    KC_RCTL ,       KC_LEFT ,KC_DOWN ,KC_UP   ,KC_RGHT
+      KC_LCTRL ,KC_GRV  ,KC_CAPS  ,LALT_T(KC_PAST)   ,KC_LALT     ,KC_SPC  ,KC_ENT,         KC_ENT ,KC_SPC ,    KC_RCTL ,       KC_LEFT ,KC_DOWN ,KC_UP   ,KC_RGHT
     //└────────┴────────┴────────┴─────────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴─────────────┘
   ),
 
@@ -186,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_ADJUST] = LAYOUT(
     //┌────────┬───────────┬──────────────┬────────┬────────┬────────┐                                               ┌────────┬────────┬────────┬────────┬────────┬─────────┐
-        KC_NO,  TG(_QWERTY),TG(_QWERTYGMNG),KC_F3,  KC_F4,   KC_F5,                                                    KC_F6,    KC_F7,    KC_F8,   KC_F9,  KC_F10,  KC_TRNS,
+        KC_NO,  TG(_QWERTY), TG(_QWERTYGMNG),     KC_F3,  KC_F4,   KC_F5,                                                    KC_F6,    KC_F7,    KC_F8,   KC_F9,  KC_F10,  KC_TRNS,
     //├────────┼───────────┼──────────────┼────────┼────────┼────────┼────────┐                             ┌────────┼────────┼──────────────┼────────┼───────────┼────────┼─────────────┤
        KC_NO,  KC_NO,   RGB_M_P, RGB_TOG, RGB_MOD, RGB_HUD,  RGB_HUI,                                      RGB_SAD,    RGB_SAI, RGB_VAD,      RGB_VAI,  KC_NO,     KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                               ├────────┼────────┼──────────────┼────────┼───────────┼────────┼─────────────┤
@@ -201,6 +194,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+
     switch (get_highest_layer(state)) {
 
     case _SYMB:
