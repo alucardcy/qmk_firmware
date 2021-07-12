@@ -86,12 +86,12 @@ const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 
 // Light LEDs 13 & 14 in green when keyboard layer 3 is active
-const rgblight_segment_t PROGMEM win_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 3, HSV_AZURE},
-    {3, 6, HSV_CYAN},
-    {6, 9, HSV_PURPLE},
-    {9, 12, HSV_GREEN}
-);
+//const rgblight_segment_t PROGMEM win_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+//    {0, 3, HSV_AZURE},
+//    {3, 6, HSV_CYAN},
+//    {6, 9, HSV_PURPLE},
+//    {9, 12, HSV_GREEN}
+//);
 
 // Light LEDs 9 & 10 in cyan when keyboard layer 1 is active
 const rgblight_segment_t PROGMEM symb_layer[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -109,8 +109,8 @@ const rgblight_segment_t PROGMEM ctrl_layer[] = RGBLIGHT_LAYER_SEGMENTS(
 
 // Now define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+//    win_layer,     // Overrides other layers
     my_capslock_layer,
-    win_layer,     // Overrides other layers
     symb_layer,    // Overrides caps lock layer
     nav_layer,    // Overrides other layers
     ctrl_layer
@@ -128,10 +128,10 @@ bool led_update_user(led_t led_state) {
 
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-     rgblight_set_layer_state(1, layer_state_cmp(state, _WIN));
-    rgblight_set_layer_state(2, layer_state_cmp(state, _SYMB));
-    rgblight_set_layer_state(3, layer_state_cmp(state, _NAV));
-    rgblight_set_layer_state(4, layer_state_cmp(state, _CTRL));
+//     rgblight_set_layer_state(0, layer_state_cmp(state, _WIN));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _SYMB));
+    rgblight_set_layer_state(2, layer_state_cmp(state, _NAV));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _CTRL));
 
     return state;
 }
