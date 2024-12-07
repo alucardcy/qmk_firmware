@@ -103,13 +103,13 @@ bool rgb_matrix_indicators_user(void) {
     uint8_t layer = biton32(layer_state);
 
     switch (layer) {
-        case _FN3:  // Layer 3: Green
-            rgb_matrix_set_color_all(0, 128, 0);   // Green
+        case _FN3:  // Layer 3: purple at 50% brightness
+            rgb_matrix_set_color_all(64, 0, 61);   // purple
             break;
 
-        case _FN4:  // Layer 4: Blue
+        case _FN4:  // Layer 4: teal at 50% brightness
 
-            rgb_matrix_set_color_all(0, 0, 128);   // Blue
+            rgb_matrix_set_color_all(0, 64, 64);   // teal
             break;
 
         case _FN5:  // Layer 5: Red
