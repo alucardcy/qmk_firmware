@@ -98,25 +98,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 
-void rgb_matrix_indicators_user(void) {
-    // Get the current active layer
+bool rgb_matrix_indicators_user(void) {
+    //Get the current active layer
     uint8_t layer = biton32(layer_state);
 
     switch (layer) {
         case _FN3:  // Layer 3: Green
-            rgb_matrix_set_color_all(0, 255, 0);   // Green
+            rgb_matrix_set_color_all(0, 128, 0);   // Green
             break;
 
         case _FN4:  // Layer 4: Blue
-            rgb_matrix_set_color_all(0, 0, 255);   // Blue
+
+            rgb_matrix_set_color_all(0, 0, 128);   // Blue
             break;
 
         case _FN5:  // Layer 5: Red
-            rgb_matrix_set_color_all(255, 0, 0);   // Red
+
+            rgb_matrix_set_color_all(128, 0, 0);   // Red
             break;
 
         default:  // Default layer: Let RGB be managed by VIA
             // Do nothing, VIA will manage the RGB settings
             break;
     }
+   return true;
 }
