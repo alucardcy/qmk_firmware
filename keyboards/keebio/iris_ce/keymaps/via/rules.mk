@@ -1,7 +1,13 @@
 VIA_ENABLE = yes
 LTO_ENABLE = yes
 CONSOLE_ENABLE = no
+
+# if you want to clear the EEPROM, uncomment the following line
 # EEPROM_CLEAR = yes
+
+
+# If you want to enable the dynamic tapping term, uncomment the following line
+DYNAMIC_TAPPING_TERM_ENABLE = yes
 
 # Enable RGB Matrix features
 # RGB_MATRIX_ENABLE = yes
